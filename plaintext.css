@@ -2,6 +2,38 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
+body {
+  margin: 0;
+  overflow: hidden;
+  background: #111;
+  color: #0f0;
+  font-family: monospace;
+}
+
+/* Make text loop around the screen edge smoothly */
+.loop-container {
+  position: relative;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.loop-text {
+  display: inline-block;
+  padding-left: 100%;
+  animation: scroll-text 15s linear infinite;
+}
+
+@keyframes scroll-text {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* Original rules preserved where relevant */
 pre {
   white-space: pre-wrap;
   word-wrap: break-word;
@@ -12,9 +44,7 @@ pre {
   white-space: pre;
 }
 
-/* Make text go with the rules of dir=auto, but allow it to be overriden if 'Switch Text Direction' is triggered */
 html:not([dir]) pre {
-  /* Not a UA sheet, so doesn't use :-moz-has-dir-attr */
   unicode-bidi: plaintext;
 }
 
@@ -26,14 +56,18 @@ html:not([dir]) pre {
   }
 }
 
-/* NOTE(emilio): For some reason some pages, mainly bing.com, load a bunch of
- * scripts in zero-size <object> elements, see bug 1548449.
- *
- * Line-breaking such documents is useless and pretty expensive, so only render
- * them if there's a viewport. Sigh.
- */
 @media (width: 0) or (height: 0) {
   :root {
     display: none;
   }
 }
+</style>
+</head>
+<body>
+  <div class="loop-container">
+    <div class="loop-text">
+      This is some looping text that wraps around the screen endlessly. 🚀
+    </div>
+  </div>
+</body>
+</html>
