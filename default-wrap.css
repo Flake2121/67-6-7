@@ -5,13 +5,14 @@ html, body {
   overflow-x: hidden;
 }
 
+/* Wrap all text by default */
 p, div, span {
   white-space: normal;
   overflow-wrap: anywhere;
   word-break: break-word;
 }
 
-/* Only center the title */
+/* Center only the title */
 h1.title {
   text-align: center;
 }
