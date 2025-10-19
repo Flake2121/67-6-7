@@ -22,6 +22,7 @@ html:not([dir]) pre {
   :root {
     color-scheme: light;
     font-size: 2px;
+    white-space: initial;
   }
 }
 
