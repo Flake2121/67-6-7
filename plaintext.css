@@ -1,73 +1,23 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+/* default.css */
 
-body {
+/* Reset common defaults */
+html, body {
   margin: 0;
-  overflow: hidden;
-  background: #111;
-  color: #0f0;
-  font-family: monospace;
+  padding: 0;
+  font-family: sans-serif;
+  line-height: 1.5;
 }
 
-/* Make text loop around the screen edge smoothly */
-.loop-container {
-  position: relative;
-  width: 100%;
-  white-space: nowrap;
-  overflow: hidden;
+/* Ensure text wraps properly instead of overflowing */
+body, p, div, span, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word; /* Modern browsers */
+  word-wrap: break-word;     /* Legacy support */
+  word-break: break-word;    /* Force break if needed */
+  white-space: normal;       /* Allow wrapping */
 }
 
-.loop-text {
-  display: inline-block;
-  padding-left: 100%;
-  animation: scroll-text 15s linear infinite;
+/* Optional: make sure content doesn't overflow containers */
+* {
+  box-sizing: border-box;
+  max-width: 100%;
 }
-
-@keyframes scroll-text {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
-}
-
-/* Original rules preserved where relevant */
-pre {
-  white-space: pre-wrap;
-  word-wrap: break-word;
-  -moz-control-character-visibility: visible;
-}
-
-.nowrap pre {
-  white-space: pre;
-}
-
-html:not([dir]) pre {
-  unicode-bidi: plaintext;
-}
-
-@-moz-document unobservable-document() {
-  :root {
-    color-scheme: light;
-    font-size: 2px;
-    white-space: initial;
-  }
-}
-
-@media (width: 0) or (height: 0) {
-  :root {
-    display: none;
-  }
-}
-</style>
-</head>
-<body>
-  <div class="loop-container">
-    <div class="loop-text">
-      This is some looping text that wraps around the screen endlessly. 🚀
-    </div>
-  </div>
-</body>
-</html>
