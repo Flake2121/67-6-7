@@ -9,7 +9,7 @@ html, body {
 }
 
 /* Ensure text wraps properly instead of overflowing */
-body, p, div, span, h1, h2, h3, h4, h5, h6 {
+body, p, div, span, h2, h3, h4, h5, h6 {
   overflow-wrap: break-word; /* Modern browsers */
   word-wrap: break-word;     /* Legacy support */
   word-break: break-word;    /* Force break if needed */
@@ -20,4 +20,8 @@ body, p, div, span, h1, h2, h3, h4, h5, h6 {
 * {
   box-sizing: border-box;
   max-width: 100%;
+}
+
+h1 {
+  text-align: center;
 }
