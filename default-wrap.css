@@ -1,27 +1,17 @@
-/* default.css */
-
-/* Reset common defaults */
 html, body {
   margin: 0;
-  padding: 0;
+  padding: 1em;
   font-family: sans-serif;
-  line-height: 1.5;
+  overflow-x: hidden;
 }
 
-/* Ensure text wraps properly instead of overflowing */
-body, p, div, span, h2, h3, h4, h5, h6 {
-  overflow-wrap: break-word; /* Modern browsers */
-  word-wrap: break-word;     /* Legacy support */
-  word-break: break-word;    /* Force break if needed */
-  white-space: normal;       /* Allow wrapping */
+p, div, span {
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
-/* Optional: make sure content doesn't overflow containers */
-* {
-  box-sizing: border-box;
-  max-width: 100%;
-}
-
+/* Only center the title */
 h1 {
   text-align: center;
 }
